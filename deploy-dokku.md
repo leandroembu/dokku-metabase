@@ -59,6 +59,9 @@ Now, run the commands to create and configure the app:
 # Create app
 dokku apps:create $APP_NAME
 dokku checks:disable $APP_NAME
+
+# Config app
+dokku config:set --no-restart $APP_NAME HEROKU=true JAVA_OPTS="-Xmx12g -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8"
 dokku config:set --no-restart $APP_NAME DOKKU_LETSENCRYPT_EMAIL=$ADMIN_EMAIL
 dokku domains:add $APP_NAME $DOMAIN
 
